@@ -1,5 +1,7 @@
 /**
- *
+ * This class represents a priority queue in the form of a min-heap.
+ * You can insert an element into the heap, or extract the element with 
+ * the currently lowest priority.
  * @author Niels Heltner (nhelt15) & Antonio Lascari (anlas15)
  */
 public class PQHeap implements PQ {
@@ -7,6 +9,11 @@ public class PQHeap implements PQ {
     private Element[] heap;
     private int size;
     
+    /**
+     * Constructs a priority queue in the form of a min-heap, with the maximum
+     * size of the given integer.
+     * @param maxElements the maximum capacity of the priority queue.
+     */
     public PQHeap(int maxElements) {
         heap = new Element[maxElements];
         size = 0;
@@ -62,16 +69,15 @@ public class PQHeap implements PQ {
         int leftChildIndex = getLeftChildIndex(index);
         int rightChildIndex = getRightChildIndex(index);
         int minIndex;
-        if((leftChildIndex < size) && 
-                (heap[leftChildIndex].getKey() < 
-                heap[index].getKey())) {
+        if(leftChildIndex < size && 
+                heap[leftChildIndex].getKey() < heap[index].getKey()) {
             minIndex = leftChildIndex;
         }
         else {
             minIndex = index;
         }
-        if((rightChildIndex < size) && 
-                (heap[rightChildIndex].getKey() < heap[minIndex].getKey())) {
+        if(rightChildIndex < size && 
+                heap[rightChildIndex].getKey() < heap[minIndex].getKey()) {
             minIndex = rightChildIndex;
         }
         if(minIndex != index) {
