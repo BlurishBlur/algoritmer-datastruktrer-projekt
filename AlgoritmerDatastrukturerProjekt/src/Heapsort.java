@@ -8,17 +8,16 @@ public class Heapsort {
     
     public static void main(String[] args) {
         PQ pq = new PQHeap(1000);
-        int n = 0;
-        int i;
+        int numberOfElements = 0;
         Scanner in = new Scanner(System.in);
         while(in.hasNextInt()) {
-            i = in.nextInt();
-            n++;
-            pq.insert(new Element(i, null));
+            int key = in.nextInt();
+            pq.insert(new Element(key, null));
+            numberOfElements++;
         }
-        while(n > 0) {
+        while(numberOfElements > 0) {
             System.out.println(pq.extractMin().getKey());
-            n--;
+            numberOfElements--;
         }
     }
     

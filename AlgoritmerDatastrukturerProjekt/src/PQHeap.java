@@ -1,22 +1,21 @@
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  *
  * @author Niels Heltner (nhelt15) & Antonio Lascari (anlas15)
  */
-public class PQHeap implements PQ { // det er den her klasse vi rent faktisk skal implementere
+public class PQHeap implements PQ {
     
-    private Element[] arrayHeap;//vi skal bestemme os for om vi vil bruge et array eller arraylist
-    private List<Element> listHeap;
+    private Element[] arrayHeap;
     private int size;
     
     public PQHeap(int maxElements) {
         arrayHeap = new Element[maxElements];
-        listHeap = new ArrayList<>(maxElements);
         size = 0;
     }
 
+    /**
+     * Extracts the element with the lowest priority key, and heapifies the heap afterwards.
+     * @return the element with the lowest priority key.
+     */
     @Override
     public Element extractMin() {
         Element min = arrayHeap[0];
@@ -25,6 +24,11 @@ public class PQHeap implements PQ { // det er den her klasse vi rent faktisk ska
         return min;
     }
 
+    /**
+     * Inserts the element into the heap, and rearranges the other elements to ensure
+     * heap-order.
+     * @param element the element to be inserted into the heap.
+     */
     @Override
     public void insert(Element element) {
         arrayHeap[size++] = element;
@@ -37,12 +41,23 @@ public class PQHeap implements PQ { // det er den her klasse vi rent faktisk ska
         }
     }
     
+    /**
+     * Swaps two elements' position in the heap. After the method call, the element
+     * at index1 will be placed at index2, and the element previously at index2
+     * will be placed at index1.
+     * @param index1 the index of the first element to be swapped.
+     * @param index2 the index of the second element to be swapped.
+     */
     private void swap(int index1, int index2) {
         Element temp = arrayHeap[index1];
         arrayHeap[index1] = arrayHeap[index2];
         arrayHeap[index2] = temp;
     }
     
+    /**
+     * Heapifies the heap, ensuring heap-shape.
+     * @param index the index of where to start the heapify.
+     */
     private void minHeapify(int index) {
         int leftChildIndex = getLeftChildIndex(index);
         int rightChildIndex = getRightChildIndex(index);
@@ -66,7 +81,7 @@ public class PQHeap implements PQ { // det er den her klasse vi rent faktisk ska
     }
     
     /**
-     * 
+     * Gets the parent index of a given child index.
      * @param childIndex the index of the child, whose parent's index needs to be found
      * @return the index of the parent, who has a child with the given index
      */
@@ -75,7 +90,7 @@ public class PQHeap implements PQ { // det er den her klasse vi rent faktisk ska
     }
     
     /**
-     * 
+     * Gets the left child index of a given parent.
      * @param parentIndex the index of the parent, whose left child's index needs to be found
      * @return the index of the left child of the parent
      */
@@ -84,7 +99,7 @@ public class PQHeap implements PQ { // det er den her klasse vi rent faktisk ska
     }
     
     /**
-     * 
+     * Gets the right child index of a given parent.
      * @param parentIndex the index of the parent, whose right child's index needs to be found
      * @return the index of the right child of the parent
      */
