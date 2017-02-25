@@ -18,6 +18,7 @@ public class Heapsort {
         }
         while(n > 0) {
             System.out.println(pq.extractMin().getKey());
+            n--;
         }
     }
     
