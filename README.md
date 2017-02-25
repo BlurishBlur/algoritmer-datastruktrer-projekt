@@ -9,5 +9,5 @@ Programmet kan køres fra kommando prompten således:
       2. Herefter kan man skrive 'java Heapsort < input.txt'
       3. Programmet vil nu læse input fra input.txt og printe ud i konsollen.
       4. Man kan også angive output: 'java Heapsort > output.txt'. Hvis filen allerede findes, vil den blive overskrevet
-      5. På nogle systemer skal man skrive: 'java Heapsort !> output.txt' for at filen bliver overskrevet
-      6. Man kan selvfølgelig også kombinere de to: 'java Heapsort < input.txt > output.txt'
+        * På nogle systemer skal man skrive: 'java Heapsort !> output.txt' for at filen bliver overskrevet
+      5. Man kan selvfølgelig også kombinere de to: 'java Heapsort < input.txt > output.txt'
