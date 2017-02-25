@@ -49,19 +49,6 @@ public class PQHeap implements PQ {
     }
     
     /**
-     * Swaps two elements' position in the heap. After the method call, the element
-     * at index1 will be placed at index2, and the element previously at index2
-     * will be placed at index1.
-     * @param index1 the index of the first element to be swapped.
-     * @param index2 the index of the second element to be swapped.
-     */
-    private void swap(int index1, int index2) {
-        Element temp = heap[index1];
-        heap[index1] = heap[index2];
-        heap[index2] = temp;
-    }
-    
-    /**
      * Heapifies the heap, ensuring heap-shape.
      * @param index the index of where to start the heapify.
      */
@@ -111,6 +98,19 @@ public class PQHeap implements PQ {
      */
     private int getRightChildIndex(int parentIndex) {
         return (parentIndex * 2) + 2;
+    }
+    
+    /**
+     * Swaps two elements' position in the heap. After the method call, the element
+     * at index1 will be placed at index2, and the element previously at index2
+     * will be placed at index1.
+     * @param index1 the index of the first element to be swapped.
+     * @param index2 the index of the second element to be swapped.
+     */
+    private void swap(int index1, int index2) {
+        Element temp = heap[index1];
+        heap[index1] = heap[index2];
+        heap[index2] = temp;
     }
     
 }
