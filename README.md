@@ -5,6 +5,7 @@ Programmet kan køres fra kommando prompten således:
 2) Derefter udføres 'javac Heapsort.java'
 
 3) Derefter kan programmet nu køres således: 'java Heapsort'
+
     a) Programmet vil herefter tage (tal-)input fra tastaturet
     b) Indtastningen kan afsluttes med ctrl+D + Enter
       I) Man kan ændre inputtet ved først at oprette en ny .txt fil, fx med navnet 'input'
