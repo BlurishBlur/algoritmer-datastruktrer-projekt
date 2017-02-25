@@ -7,7 +7,7 @@ Programmet kan køres fra kommando prompten således:
 3) Derefter kan programmet nu køres således: 'java Heapsort'
 
     a) Programmet vil herefter tage (tal-)input fra tastaturet
-    b) Indtastningen kan afsluttes med ctrl + C
+    b) Indtastningen kan afsluttes med at skrive noget som ikke er et tal. Programmet kan afbrydes helt med ctrl + C
       I) Man kan ændre inputtet ved først at oprette en ny .txt fil, fx med navnet 'input', og fylde denne med tal, sepereret med newline
       II) Herefter kan man skrive 'java Heapsort < input.txt'
       III) Programmet vil nu læse input fra input.txt og printe ud i konsollen.
