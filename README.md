@@ -1,4 +1,7 @@
-Programmet kan køres fra kommando prompten således:
+##[Link til projekt beskrivelse](http://www.imada.sdu.dk/~rolf/Edu/DM507/F17/projectPartI.pdf)
+
+
+###Programmet kan køres fra kommando prompten på følgende måde:
 
 1. Først cd'es der til java-filernes lokation
 2. Derefter udføres 'javac Heapsort.java'
