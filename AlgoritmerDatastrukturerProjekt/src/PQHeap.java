@@ -4,11 +4,11 @@
  */
 public class PQHeap implements PQ {
     
-    private Element[] arrayHeap;
+    private Element[] heap;
     private int size;
     
     public PQHeap(int maxElements) {
-        arrayHeap = new Element[maxElements];
+        heap = new Element[maxElements];
         size = 0;
     }
 
@@ -18,8 +18,8 @@ public class PQHeap implements PQ {
      */
     @Override
     public Element extractMin() {
-        Element min = arrayHeap[0];
-        arrayHeap[0] = arrayHeap[--size];
+        Element min = heap[0];
+        heap[0] = heap[--size];
         minHeapify(0);
         return min;
     }
@@ -31,11 +31,11 @@ public class PQHeap implements PQ {
      */
     @Override
     public void insert(Element element) {
-        arrayHeap[size++] = element;
+        heap[size++] = element;
         int currentIndex = size - 1;
         while(currentIndex > 0 && 
-                arrayHeap[getParentIndex(currentIndex)].getKey() > 
-                arrayHeap[currentIndex].getKey()) {
+                heap[getParentIndex(currentIndex)].getKey() > 
+                heap[currentIndex].getKey()) {
             swap(getParentIndex(currentIndex), currentIndex);
             currentIndex = getParentIndex(currentIndex);
         }
@@ -49,9 +49,9 @@ public class PQHeap implements PQ {
      * @param index2 the index of the second element to be swapped.
      */
     private void swap(int index1, int index2) {
-        Element temp = arrayHeap[index1];
-        arrayHeap[index1] = arrayHeap[index2];
-        arrayHeap[index2] = temp;
+        Element temp = heap[index1];
+        heap[index1] = heap[index2];
+        heap[index2] = temp;
     }
     
     /**
@@ -63,15 +63,15 @@ public class PQHeap implements PQ {
         int rightChildIndex = getRightChildIndex(index);
         int minIndex;
         if((leftChildIndex < size) && 
-                (arrayHeap[leftChildIndex].getKey() < 
-                arrayHeap[index].getKey())) {
+                (heap[leftChildIndex].getKey() < 
+                heap[index].getKey())) {
             minIndex = leftChildIndex;
         }
         else {
             minIndex = index;
         }
         if((rightChildIndex < size) && 
-                (arrayHeap[rightChildIndex].getKey() < arrayHeap[minIndex].getKey())) {
+                (heap[rightChildIndex].getKey() < heap[minIndex].getKey())) {
             minIndex = rightChildIndex;
         }
         if(minIndex != index) {
