@@ -20,39 +20,47 @@ public class PQHeap implements PQ { // det er den her klasse vi rent faktisk ska
     @Override
     public Element extractMin() {
         Element min = arrayHeap[0];
-        arrayHeap[0] = arrayHeap[arrayHeap.length - 1];
+        arrayHeap[0] = arrayHeap[--size];
         minHeapify(0);
         return min;
     }
 
     @Override
     public void insert(Element element) {
-        arrayHeap[++size] = element;
-        int currentIndex = size;
-        while(currentIndex > 0 && arrayHeap[getParentIndex(currentIndex)].getKey() > arrayHeap[currentIndex].getKey()) {
-            //mangler lige det sidste pseudo kode
+        arrayHeap[size++] = element;
+        int currentIndex = size - 1;
+        while(currentIndex > 0 && 
+                arrayHeap[getParentIndex(currentIndex)].getKey() > 
+                arrayHeap[currentIndex].getKey()) {
+            swap(getParentIndex(currentIndex), currentIndex);
+            currentIndex = getParentIndex(currentIndex);
         }
+    }
+    
+    private void swap(int index1, int index2) {
+        Element temp = arrayHeap[index1];
+        arrayHeap[index1] = arrayHeap[index2];
+        arrayHeap[index2] = temp;
     }
     
     private void minHeapify(int index) {
         int leftChildIndex = getLeftChildIndex(index);
         int rightChildIndex = getRightChildIndex(index);
         int minIndex;
-        if((leftChildIndex >= arrayHeap.length - 1) && 
-                (arrayHeap[leftChildIndex].getKey() < arrayHeap[index].getKey())) {
+        if((leftChildIndex < size) && 
+                (arrayHeap[leftChildIndex].getKey() < 
+                arrayHeap[index].getKey())) {
             minIndex = leftChildIndex;
         }
         else {
             minIndex = index;
         }
-        if((rightChildIndex >= arrayHeap.length - 1) && 
+        if((rightChildIndex < size) && 
                 (arrayHeap[rightChildIndex].getKey() < arrayHeap[minIndex].getKey())) {
             minIndex = rightChildIndex;
         }
         if(minIndex != index) {
-            Element temp = arrayHeap[minIndex];
-            arrayHeap[minIndex] = arrayHeap[index];
-            arrayHeap[index] = temp;
+            swap(minIndex, index);
             minHeapify(minIndex);
         }
     }
@@ -63,7 +71,7 @@ public class PQHeap implements PQ { // det er den her klasse vi rent faktisk ska
      * @return the index of the parent, who has a child with the given index
      */
     private int getParentIndex(int childIndex) {
-        return childIndex / 2;
+        return (childIndex - 1) / 2;
     }
     
     /**
@@ -72,7 +80,7 @@ public class PQHeap implements PQ { // det er den her klasse vi rent faktisk ska
      * @return the index of the left child of the parent
      */
     private int getLeftChildIndex(int parentIndex) {
-        return parentIndex * 2;
+        return (parentIndex * 2) + 1;
     }
     
     /**
@@ -81,7 +89,7 @@ public class PQHeap implements PQ { // det er den her klasse vi rent faktisk ska
      * @return the index of the right child of the parent
      */
     private int getRightChildIndex(int parentIndex) {
-        return (parentIndex * 2) + 1;
+        return (parentIndex * 2) + 2;
     }
     
 }
