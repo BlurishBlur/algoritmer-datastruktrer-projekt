@@ -41,8 +41,8 @@ public class PQHeap implements PQ {
         heap[size++] = element;
         int currentIndex = size - 1;
         while(currentIndex > 0 && 
-                heap[getParentIndex(currentIndex)].getKey() > 
-                heap[currentIndex].getKey()) {
+                heap[getParentIndex(currentIndex)].key > 
+                heap[currentIndex].key) {
             swap(getParentIndex(currentIndex), currentIndex);
             currentIndex = getParentIndex(currentIndex);
         }
@@ -57,14 +57,14 @@ public class PQHeap implements PQ {
         int rightChildIndex = getRightChildIndex(index);
         int minIndex;
         if(leftChildIndex < size && 
-                heap[leftChildIndex].getKey() < heap[index].getKey()) {
+                heap[leftChildIndex].key < heap[index].key) {
             minIndex = leftChildIndex;
         }
         else {
             minIndex = index;
         }
         if(rightChildIndex < size && 
-                heap[rightChildIndex].getKey() < heap[minIndex].getKey()) {
+                heap[rightChildIndex].key < heap[minIndex].key) {
             minIndex = rightChildIndex;
         }
         if(minIndex != index) {

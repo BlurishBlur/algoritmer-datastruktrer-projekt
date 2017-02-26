@@ -16,7 +16,7 @@ public class Heapsort {
             numberOfElements++;
         }
         while(numberOfElements > 0) {
-            System.out.println(pq.extractMin().getKey());
+            System.out.println(pq.extractMin().key);
             numberOfElements--;
         }
     }
