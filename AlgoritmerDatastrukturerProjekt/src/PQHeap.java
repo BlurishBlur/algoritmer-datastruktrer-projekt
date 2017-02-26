@@ -6,7 +6,13 @@
  */
 public class PQHeap implements PQ {
     
+    /**
+     * The heap, represented by an Element array.
+     */
     private Element[] heap;
+    /**
+     * The current amount of objects in the heap.
+     */
     private int size;
     
     /**
