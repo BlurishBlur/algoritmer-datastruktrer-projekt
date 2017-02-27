@@ -16,8 +16,8 @@ public class PQHeap implements PQ {
     private int size;
     
     /**
-     * Constructs a priority queue in the form of a min-heap, with the maximum
-     * size of the given integer.
+     * Constructs a priority queue in the form of a min-heap, with a maximum
+     * capacity of the given integer.
      * @param maxElements the maximum capacity of the priority queue.
      */
     public PQHeap(int maxElements) {
@@ -47,8 +47,7 @@ public class PQHeap implements PQ {
         heap[size++] = element;
         int currentIndex = size - 1;
         while(currentIndex > 0 && 
-                heap[getParentIndex(currentIndex)].key > 
-                heap[currentIndex].key) {
+                heap[getParentIndex(currentIndex)].key > heap[currentIndex].key) {
             swap(getParentIndex(currentIndex), currentIndex);
             currentIndex = getParentIndex(currentIndex);
         }
