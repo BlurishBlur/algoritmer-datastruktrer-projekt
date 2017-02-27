@@ -3,7 +3,7 @@
 
 ###Programmet kan køres fra kommando prompten på følgende måde:
 
-1. Først cd'es der til java-filernes lokation
+1. Først skiftes der cd til java-filernes lokation
 2. Derefter udføres 'javac Heapsort.java'
 3. Derefter kan programmet nu køres således: 'java Heapsort'
     1. Programmet vil herefter tage (tal-)input fra tastaturet
