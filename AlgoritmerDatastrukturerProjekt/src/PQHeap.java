@@ -39,7 +39,7 @@ public class PQHeap implements PQ {
 
     /**
      * Inserts the element into the heap, and rearranges the other elements to ensure
-     * heap-order.
+     * heap-shape.
      * @param element the element to be inserted into the heap.
      */
     @Override
@@ -54,7 +54,7 @@ public class PQHeap implements PQ {
     }
     
     /**
-     * Heapifies the heap, ensuring heap-shape.
+     * Heapifies the heap, ensuring heap-order.
      * @param index the index of where to start the heapify.
      */
     private void minHeapify(int index) {
