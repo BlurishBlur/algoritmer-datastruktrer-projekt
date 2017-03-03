@@ -38,8 +38,8 @@ public class PQHeap implements PQ {
     }
 
     /**
-     * Inserts the element into the heap, and rearranges the other elements to ensure
-     * heap-shape.
+     * Inserts the element into the heap, ensuring heap-shape, 
+     * and rearranges the other elements to ensure heap-order.
      * @param element the element to be inserted into the heap.
      */
     @Override
