@@ -16,8 +16,8 @@ public class PQHeap implements PQ {
     private int size;
     
     /**
-     * Constructs a priority queue in the form of a min-heap, with a maximum
-     * capacity of the given integer.
+     * Constructs a priority queue in the form of a min-heap, with a 
+     * maximum capacity of the given integer.
      * @param maxElements the maximum capacity of the priority queue.
      */
     public PQHeap(int maxElements) {
@@ -26,7 +26,8 @@ public class PQHeap implements PQ {
     }
 
     /**
-     * Extracts the element with the lowest priority key, and heapifies the heap afterwards.
+     * Extracts the element with the lowest priority key, and heapifies 
+     * the heap afterwards.
      * @return the element with the lowest priority key.
      */
     @Override
@@ -47,7 +48,8 @@ public class PQHeap implements PQ {
         heap[size++] = element;
         int currentIndex = size - 1;
         while(currentIndex > 0 && 
-                heap[getParentIndex(currentIndex)].key > heap[currentIndex].key) {
+                heap[getParentIndex(currentIndex)].key > 
+                heap[currentIndex].key) {
             swap(getParentIndex(currentIndex), currentIndex);
             currentIndex = getParentIndex(currentIndex);
         }
@@ -80,7 +82,8 @@ public class PQHeap implements PQ {
     
     /**
      * Gets the parent index of a given child index.
-     * @param childIndex the index of the child, whose parent's index needs to be found
+     * @param childIndex the index of the child, whose parent's index 
+     * needs to be found
      * @return the index of the parent, who has a child with the given index
      */
     private int getParentIndex(int childIndex) {
@@ -89,7 +92,8 @@ public class PQHeap implements PQ {
     
     /**
      * Gets the left child index of a given parent.
-     * @param parentIndex the index of the parent, whose left child's index needs to be found
+     * @param parentIndex the index of the parent, whose left child's 
+     * index needs to be found
      * @return the index of the left child of the parent
      */
     private int getLeftChildIndex(int parentIndex) {
@@ -98,7 +102,8 @@ public class PQHeap implements PQ {
     
     /**
      * Gets the right child index of a given parent.
-     * @param parentIndex the index of the parent, whose right child's index needs to be found
+     * @param parentIndex the index of the parent, whose right child's 
+     * index needs to be found
      * @return the index of the right child of the parent
      */
     private int getRightChildIndex(int parentIndex) {
@@ -106,11 +111,11 @@ public class PQHeap implements PQ {
     }
     
     /**
-     * Swaps two elements' position in the heap. After the method call, the element
-     * at index1 will be placed at index2, and the element previously at index2
-     * will be placed at index1.
-     * @param index1 the index of the first element to be swapped.
-     * @param index2 the index of the second element to be swapped.
+     * Swaps two elements' position in the heap. After the method call, 
+     * the element at index1 will be placed at index2, and the element 
+     * previously at index2 will be placed at index1
+     * @param index1 the index of the first element to be swapped
+     * @param index2 the index of the second element to be swapped
      */
     private void swap(int index1, int index2) {
         Element temp = heap[index1];
